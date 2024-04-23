@@ -13,11 +13,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.light(
+            background: Colors.grey.shade200,
+            onBackground: Colors.black,
+            primary: const Color(0xFFFe3c72),
+            onPrimary: Colors.black,
+            secondary: const Color(0xFF424242),
+            onSecondary: Colors.white,
+            tertiary: const Color.fromRGBO(255, 204, 128, 1),
+            error: Colors.red,
+            outline: const Color(0xFF424242)
+        ),
         useMaterial3: true,
       ),
-      home: const MyScreen(),
+      home: const MyScreen(actionsIcon: SizedBox(width: 10,),),
     );
   }
 }

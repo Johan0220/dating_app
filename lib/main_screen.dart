@@ -1,11 +1,13 @@
 import 'package:dating_app/screens/Match/match_screen.dart';
 import 'package:dating_app/screens/chatbox/chatbox_screen.dart';
 import 'package:dating_app/screens/home/home_screen.dart';
+import 'package:dating_app/screens/home/view/profile_detail_screen.dart';
 import 'package:dating_app/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyScreen extends StatefulWidget{
-  const MyScreen({Key? key}) : super(key: key);
+  final Widget actionsIcon;
+  const MyScreen({Key? key, required this.actionsIcon}) : super(key: key);
   @override
   _MyScreenState createState() => _MyScreenState();
 }
@@ -18,18 +20,29 @@ class _MyScreenState extends State<MyScreen>{
     const ProfileScreen(),
   ];
   int _selectIndex = 0;
+
+  get actionsIcon => SizedBox();
   _changeTab(int index){
     setState(() {
         _selectIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tinder'),
-        titleTextStyle: TextStyle(color: Colors.white),
-        backgroundColor: Colors.pink,
+        title: const Text('tinder'),
+        titleTextStyle: TextStyle(
+            color: Colors.pink,
+            fontSize: 25,
+            fontWeight: FontWeight.w700,
+        ),
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        actions: [
+          actionsIcon,
+        ],
       ),
       body: _screen[_selectIndex],
       bottomNavigationBar: BottomNavigationBar(
