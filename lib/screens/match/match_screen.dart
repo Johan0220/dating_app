@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Match extends StatelessWidget{
-  const Match({super.key});
+class MatchScreen extends StatelessWidget{
+  const MatchScreen({super.key});
 
   @override
   Widget build(BuildContext context){

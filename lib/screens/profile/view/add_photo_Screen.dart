@@ -1,8 +1,6 @@
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 
 class AddPhotoScreen extends StatefulWidget {
   const AddPhotoScreen({super.key});
@@ -13,7 +11,7 @@ class AddPhotoScreen extends StatefulWidget {
 
 class _AddPhotoScreenState extends State<AddPhotoScreen> {
   List<String> images = [];
-
+  File ? _selectImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,43 +53,42 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        // onTap: () async {
-                        //   final ImagePicker picker = ImagePicker();
-                        //   final XFile? image = await picker.pickImage(
-                        //       source: ImageSource.gallery,
-                        //       imageQuality: 80
-                        //   );
-                        //
-                        //   if(image != null && mounted) {
-                        //     CroppedFile? croppedFile = await ImageCropper().cropImage(
-                        //       sourcePath: image.path,
-                        //       aspectRatio: const CropAspectRatio(
-                        //           ratioX: 9,
-                        //           ratioY: 16
-                        //       ),
-                        //       aspectRatioPresets: [],
-                        //       uiSettings: [
-                        //         AndroidUiSettings(
-                        //             toolbarTitle: 'Cropper',
-                        //             toolbarColor: Theme.of(context).colorScheme.primary,
-                        //             toolbarWidgetColor:Colors.white,
-                        //             initAspectRatio: CropAspectRatioPreset.original,
-                        //             lockAspectRatio: false
-                        //         ),
-                        //         IOSUiSettings(
-                        //           title: 'Cropper',
-                        //         ),
-                        //       ],
-                        //     );
-                        //
-                        //     if(croppedFile != null && mounted) {
-                        //       setState(() {
-                        //         images.add(croppedFile.path);
-                        //       });
-                        //       Navigator.pop(context, images);
-                        //     }
-                        //   }
-                        // },
+                        onTap: () async {
+                          // final ImagePicker picker = ImagePicker();
+                          // final XFile? image = await picker.pickImage(
+                          //     source: ImageSource.gallery,
+                          //     imageQuality: 80
+                          // );
+                          // if(image != null && mounted) {
+                          //   CroppedFile? croppedFile = await ImageCropper().cropImage(
+                          //     sourcePath: image.path,
+                          //     aspectRatio: const CropAspectRatio(
+                          //         ratioX: 9,
+                          //         ratioY: 16
+                          //     ),
+                          //     aspectRatioPresets: [],
+                          //     uiSettings: [
+                          //       AndroidUiSettings(
+                          //           toolbarTitle: 'Cropper',
+                          //           toolbarColor: Theme.of(context).colorScheme.primary,
+                          //           toolbarWidgetColor:Colors.white,
+                          //           initAspectRatio: CropAspectRatioPreset.original,
+                          //           lockAspectRatio: false
+                          //       ),
+                          //       IOSUiSettings(
+                          //         title: 'Cropper',
+                          //       ),
+                          //     ],
+                          //   );
+                          //
+                          //   if(croppedFile != null && mounted) {
+                          //     setState(() {
+                          //       images.add(croppedFile.path);
+                          //     });
+                          //     Navigator.pop(context, images);
+                          //   }
+                          // }
+                        },
                         child: Container(
                           width: double.infinity,
                           height: 120,
@@ -176,5 +173,12 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
         )
       ),
     );
+
   }
+  // Future _pickMediaFromGallery() async {
+  //   final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //   setState(() {
+  //     _selectImage = File(returnedImage!.path);
+  //   });
+  // }
 }

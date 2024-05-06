@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.light(
-            background: Colors.grey.shade200,
+            background: Colors.blueGrey.shade50,
             onBackground: Colors.black,
             primary: const Color(0xFFFe3c72),
             onPrimary: Colors.black,
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MyScreen(actionsIcon: SizedBox(width: 10,),),
+      home: const MyScreen(),
     );
   }
 }

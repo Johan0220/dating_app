@@ -202,6 +202,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               const SizedBox(height: 30),
+
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
@@ -212,7 +213,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
+              Container(
+                color: Colors.white,
+                child: TextFormField(
+                  maxLines: 10,
+                  minLines: 2,
+                  decoration: const InputDecoration(
+                      contentPadding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      hintText: "About me",
+                      border: InputBorder.none
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Interests",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
               Container(
                 color: Colors.white,
                 child: TextFormField(
@@ -220,7 +247,82 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   minLines: 1,
                   decoration: const InputDecoration(
                       contentPadding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      hintText: "About me",
+                      hintText: "Add Interests",
+                      border: InputBorder.none
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Relationship Goals",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Container(
+                color: Colors.white,
+                child: TextFormField(
+                  maxLines: 10,
+                  minLines: 1,
+                  decoration: const InputDecoration(
+                      contentPadding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      hintText: "Locking for New friend",
+                      border: InputBorder.none
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Height",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Container(
+                color: Colors.white,
+                child: TextFormField(
+                  maxLines: 10,
+                  minLines: 1,
+                  decoration: const InputDecoration(
+                      contentPadding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      hintText: "Add Height",
+                      border: InputBorder.none
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Langueges I Know",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                  ),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Container(
+                color: Colors.white,
+                child: TextFormField(
+                  maxLines: 10,
+                  minLines: 1,
+                  decoration: const InputDecoration(
+                      contentPadding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      hintText: "Add languages",
                       border: InputBorder.none
                   ),
                 ),

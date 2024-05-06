@@ -34,6 +34,50 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(
+          title: const Text('Name'),
+          titleTextStyle: TextStyle(
+          color: Colors.black,
+          fontSize: 25,
+          fontWeight: FontWeight.w700,
+          ),
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          actions: [
+            Material(
+              color:  Colors.pinkAccent,
+              elevation: 3,
+              borderRadius: BorderRadius.circular(100),
+              child: InkWell(
+                  borderRadius: BorderRadius.circular(100),
+                  onTap: () {
+                    Navigator.of(context, rootNavigator: true).pop(currentPhoto);
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/icons/arrow_down.png',
+                            scale: 20,
+                            color: Colors.white,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                    ),
+                  )
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            )
+          ],
+      ),
       body: SafeArea(
         child: Stack(
           children: [
@@ -135,41 +179,41 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(right: 16),
-                                            child: Material(
-                                              color:  Colors.pink,
-                                              elevation: 3,
-                                              borderRadius: BorderRadius.circular(100),
-                                              child: InkWell(
-                                                  borderRadius: BorderRadius.circular(100),
-                                                  onTap: () {
-                                                    Navigator.of(context, rootNavigator: true).pop(currentPhoto);
-                                                  },
-                                                  child: Container(
-                                                    height: 50,
-                                                    width: 50,
-                                                    decoration: const BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Center(
-                                                        child: Padding(
-                                                          padding: const EdgeInsets.all(8.0),
-                                                          child: Image.asset(
-                                                            'assets/icons/arrow_down.png',
-                                                            scale: 20,
-                                                            color: Colors.white,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        )
-                                                    ),
-                                                  )
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                                        // Align(
+                                        //   alignment: Alignment.bottomRight,
+                                        //   child: Padding(
+                                        //     padding: const EdgeInsets.only(right: 16),
+                                        //     child: Material(
+                                        //       color:  Colors.pink,
+                                        //       elevation: 3,
+                                        //       borderRadius: BorderRadius.circular(100),
+                                        //       child: InkWell(
+                                        //           borderRadius: BorderRadius.circular(100),
+                                        //           onTap: () {
+                                        //             Navigator.of(context, rootNavigator: true).pop(currentPhoto);
+                                        //           },
+                                        //           child: Container(
+                                        //             height: 50,
+                                        //             width: 50,
+                                        //             decoration: const BoxDecoration(
+                                        //               shape: BoxShape.circle,
+                                        //             ),
+                                        //             child: Center(
+                                        //                 child: Padding(
+                                        //                   padding: const EdgeInsets.all(8.0),
+                                        //                   child: Image.asset(
+                                        //                     'assets/icons/arrow_down.png',
+                                        //                     scale: 20,
+                                        //                     color: Colors.white,
+                                        //                     fit: BoxFit.cover,
+                                        //                   ),
+                                        //                 )
+                                        //             ),
+                                        //           )
+                                        //       ),
+                                        //     ),
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
 
@@ -214,7 +258,7 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
+                                    Text('Locking For', style: TextStyle(color: Colors.grey)),
                                   ],
                                 ),
                                 SizedBox(
@@ -225,11 +269,11 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.black,),
+                                    // Icon(Icons.search,color: Colors.black,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 2',
+                                    Text('New Friend',
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500
@@ -259,11 +303,16 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.grey,),
+                                    // Icon(Icons.search,color: Colors.grey,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
+                                    Text('"" About Me',
+                                        style: TextStyle(
+                                        color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                      )
+                                    ),
                                   ],
                                 ),
                                 SizedBox(
@@ -274,14 +323,14 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.black,),
+                                    // Icon(Icons.search,color: Colors.black,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 2',
+                                    Text('Hải Phòng Không Lòng Vòng',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontWeight: FontWeight.w500
+                                          fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                   ],
@@ -293,7 +342,7 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                             height: 10,
                           ),
                           Container(
-                            height: 100,
+                            height: 140,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
@@ -308,11 +357,16 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.grey,),
+                                    // Icon(Icons.search,color: Colors.grey,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
+                                    Text('Essentials',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                      )
+                                    ),
                                   ],
                                 ),
                                 SizedBox(
@@ -323,14 +377,16 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.black,),
+                                    // Icon(Icons.search,color: Colors.black,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 2',
+                                    Text('Less than a mile away\n'
+                                        '157cm\n'
+                                        'Woman',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontWeight: FontWeight.w500
+                                          fontWeight: FontWeight.w300
                                       ),
                                     ),
                                   ],
@@ -342,7 +398,7 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                             height: 10,
                           ),
                           Container(
-                            height: 100,
+                            height: 130,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
@@ -357,11 +413,11 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.grey,),
+                                    // Icon(Icons.search,color: Colors.grey,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
+                                    Text('Basics', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,)),
                                   ],
                                 ),
                                 SizedBox(
@@ -372,11 +428,12 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                                     SizedBox(
                                       width: 15,
                                     ),
-                                    Icon(Icons.search,color: Colors.black,),
+                                    // Icon(Icons.search,color: Colors.black,),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    Text('Dòng 2',
+                                    Text('Zodiac\n'
+                                        'Education\n',
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500
@@ -389,101 +446,6 @@ class _ProfileDetailScreenState extends State<ProfileDetailScreen>{
                           ),
                           const SizedBox(
                             height: 10,
-                          ),
-                          Container(
-                            height: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: const Column(
-                              children: [
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 15,
-                                    ),
-                                    Icon(Icons.search,color: Colors.grey,),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 15,
-                                    ),
-                                    Icon(Icons.search,color: Colors.black,),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text('Dòng 2',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            height: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: const Column(
-                              children: [
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 15,
-                                    ),
-                                    Icon(Icons.search,color: Colors.grey,),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text('Dòng 1', style: TextStyle(color: Colors.grey)),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 15,
-                                    ),
-                                    Icon(Icons.search,color: Colors.black,),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text('Dòng 2',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
                           ),
 
 

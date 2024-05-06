@@ -240,7 +240,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ],
                                         ),
                                         Material(
-                                          color: Colors.transparent,
+                                          color: Theme.of(context).colorScheme.secondary.withOpacity(0.7),
+                                          borderRadius: BorderRadius.circular(100),
                                           child: InkWell(
                                             onTap: () => PersistentNavBarNavigator.pushNewScreen(
                                                 context,
@@ -296,7 +297,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Material(
-                                        color: Colors.transparent,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(100),
+                                        elevation: 4,
                                         child: InkWell(
                                           onTap: (){
 
@@ -309,14 +312,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: Colors.orange,
+                                                color: Colors.white,
                                               ),
                                             ),
                                             child: Center(
                                               child: Padding(
                                                 padding: const EdgeInsets.all(8),
                                                 child: Image.asset("assets/icons/back.png",
-                                                  color: Colors.yellow,
+                                                  color: Colors.orange,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -325,7 +328,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Material(
-                                        color: Colors.transparent,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(100),
+                                        elevation: 4,
                                         child: InkWell(
                                           onTap: (){
                                             nopeProfile();
@@ -333,12 +338,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                           splashColor: Colors.red,
                                           borderRadius: BorderRadius.circular(100),
                                           child: Container(
-                                            width: 50,
-                                            height: 50,
+                                            width: 60,
+                                            height: 60,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: Colors.red,
+                                                color: Colors.white,
                                               ),
                                             ),
                                             child: Center(
@@ -354,7 +359,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Material(
-                                        color: Colors.transparent,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(100),
+                                        elevation: 4,
                                         child: InkWell(
                                           onTap: (){
                                             superLikeProfile();
@@ -367,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: Colors.blue,
+                                                color: Colors.white,
                                               ),
                                             ),
                                             child: Center(
@@ -383,7 +390,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Material(
-                                        color: Colors.transparent,
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(100),
+                                        elevation: 4,
                                         child: InkWell(
                                           onTap: (){
                                             likeProfile();
@@ -396,7 +405,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: Colors.green,
+                                                color: Colors.white,
                                               ),
                                             ),
                                             child: Center(
