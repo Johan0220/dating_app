@@ -14,14 +14,25 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   dio: ^5.4.1
+
+  flutter_bloc: ^8.1.5
   provider: ^6.1.2
+  equatable: ^2.0.5
+
   swipe_cards: ^2.0.0+1
   persistent_bottom_nav_bar: ^5.0.2
   flutter_native_splash: ^2.4.0
   font_awesome_flutter: ^10.7.0
   dotted_border: ^2.1.0
-#  image_cropper: ^6.0.0
-#  image_picker: ^1.1.1
+
+  image_cropper: ^6.0.0
+  image_picker: ^1.1.1
+
+  url_launcher: ^6.2.6
+
+  google_sign_in: ^6.2.1
+  firebase_core: ^2.31.0
+  firebase_auth: ^4.19.5
 
 dev_dependencies:
   flutter_test:

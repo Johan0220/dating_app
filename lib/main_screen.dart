@@ -1,6 +1,5 @@
 import 'package:dating_app/screens/chatbox/chatbox_screen.dart';
 import 'package:dating_app/screens/home/home_screen.dart';
-import 'package:dating_app/screens/home/view/profile_detail_screen.dart';
 import 'package:dating_app/screens/match/match_screen.dart';
 import 'package:dating_app/screens/profile/profile_screen.dart';
 import 'package:dating_app/screens/setting/setting_screen.dart';

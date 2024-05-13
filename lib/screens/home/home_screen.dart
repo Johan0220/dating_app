@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:dating_app/screens/home/view/profile_detail_screen.dart';
+import 'package:dating_app/screens/setting/setting_screen.dart';
+import 'package:dating_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -222,7 +224,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           children: [
                                             Text(
                                               items[index].content,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
@@ -280,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ),
-                                  Row(
+                                  const Row(
                                     children: [
                                       Text(
                                         "2km",
@@ -301,9 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         borderRadius: BorderRadius.circular(100),
                                         elevation: 4,
                                         child: InkWell(
-                                          onTap: (){
-
-                                          },
+                                          onTap: ()=>PersistentNavBarNavigator.pushNewScreen(context, screen: SignInScreen()),
                                           splashColor: Colors.orange,
                                           borderRadius: BorderRadius.circular(100),
                                           child: Container(

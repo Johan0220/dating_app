@@ -1,6 +1,10 @@
 import 'dart:io';
+import 'dart:math';
+import 'package:dating_app/screens/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddPhotoScreen extends StatefulWidget {
   const AddPhotoScreen({super.key});
@@ -11,7 +15,51 @@ class AddPhotoScreen extends StatefulWidget {
 
 class _AddPhotoScreenState extends State<AddPhotoScreen> {
   List<String> images = [];
-  File ? _selectImage;
+  void pickImages(bool pickGalleryImages) async {
+    final picker = ImagePicker();
+    final List<XFile>? pickedImages = pickGalleryImages
+        ? await picker.pickMultiImage(imageQuality: 6)
+        : await picker.pickMultiImage(imageQuality: 6);
+
+    if (pickedImages != null && mounted) {
+      for (var image in pickedImages) {
+        final croppedImage = await cropImages(image);
+        if (croppedImage != null) {
+          setState(() {
+            images.add(croppedImage.path);
+          });
+        }
+      }
+      Navigator.pop(context, images);
+    }
+  }
+
+  Future<CroppedFile> cropImages(XFile image) async {
+    final croppedFile = await ImageCropper().cropImage(
+      sourcePath: image.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio7x5,
+        CropAspectRatioPreset.ratio16x9,
+      ],
+      uiSettings: [
+        AndroidUiSettings(
+          toolbarTitle: 'Crop Image',
+          toolbarColor: Colors.deepOrange,
+          toolbarWidgetColor: Colors.white,
+          initAspectRatio: CropAspectRatioPreset.original,
+          lockAspectRatio: false,
+        ),
+        IOSUiSettings(
+          title: 'Crop Image',
+        ),
+      ],
+    );
+    return croppedFile!;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,41 +101,8 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: () async {
-                          // final ImagePicker picker = ImagePicker();
-                          // final XFile? image = await picker.pickImage(
-                          //     source: ImageSource.gallery,
-                          //     imageQuality: 80
-                          // );
-                          // if(image != null && mounted) {
-                          //   CroppedFile? croppedFile = await ImageCropper().cropImage(
-                          //     sourcePath: image.path,
-                          //     aspectRatio: const CropAspectRatio(
-                          //         ratioX: 9,
-                          //         ratioY: 16
-                          //     ),
-                          //     aspectRatioPresets: [],
-                          //     uiSettings: [
-                          //       AndroidUiSettings(
-                          //           toolbarTitle: 'Cropper',
-                          //           toolbarColor: Theme.of(context).colorScheme.primary,
-                          //           toolbarWidgetColor:Colors.white,
-                          //           initAspectRatio: CropAspectRatioPreset.original,
-                          //           lockAspectRatio: false
-                          //       ),
-                          //       IOSUiSettings(
-                          //         title: 'Cropper',
-                          //       ),
-                          //     ],
-                          //   );
-                          //
-                          //   if(croppedFile != null && mounted) {
-                          //     setState(() {
-                          //       images.add(croppedFile.path);
-                          //     });
-                          //     Navigator.pop(context, images);
-                          //   }
-                          // }
+                        onTap: ()  {
+                          pickImages(true);
                         },
                         child: Container(
                           width: double.infinity,
@@ -128,42 +143,48 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                         ),
                       ),
                       const SizedBox(height: 20,),
-                      Container(
-                        width: double.infinity,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: const DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(
-                                    "assets/images/camera_banner.png",
-                                )
-                            )
-                        ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 40),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Capture from",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500
+                      GestureDetector(
+                        onTap: ()  {
+                          pickImages(false);
+                        },
+                        child:
+                          Container(
+                                  width: double.infinity,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: const DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              "assets/images/camera_banner.png",
+                                          )
+                                      )
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.only(left: 40),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Capture from",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500
+                                          ),
+                                        ),
+                                        Text(
+                                          "Camera",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "Camera",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
                       ),
                     ],
                   )
@@ -175,10 +196,4 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
     );
 
   }
-  // Future _pickMediaFromGallery() async {
-  //   final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
-  //   setState(() {
-  //     _selectImage = File(returnedImage!.path);
-  //   });
-  // }
 }

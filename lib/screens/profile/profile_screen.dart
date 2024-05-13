@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:dating_app/screens/profile/view/add_photo_Screen.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -14,7 +15,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  List<String> newPhotos = ["ahaah"];
+  List<String> newPhotos = [];
 
   @override
   void initState() {
@@ -105,9 +106,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     decoration: BoxDecoration(
                                     color: Colors.grey.shade300,
                                     borderRadius: BorderRadius.circular(8),
-                                    image: const DecorationImage(
+                                    image: DecorationImage(
                                       fit: BoxFit.cover,
-                                      image: AssetImage("assets/images/girl.png"),
+                                      image: FileImage(File(newPhotos[index])),
                                     ),
                                   ),
                                 )
@@ -149,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           ? GestureDetector(
                                               onTap: () {
                                                 setState(() {
-
+                                                  newPhotos.removeAt(index);
                                                 });
                                               },
                                               child: Container(
