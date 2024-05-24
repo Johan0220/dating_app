@@ -16,6 +16,8 @@ dependencies:
   dio: ^5.4.1
 
   flutter_bloc: ^8.1.5
+  bloc: ^8.1.4
+  shared_preferences: ^2.2.3
   provider: ^6.1.2
   equatable: ^2.0.5
 
@@ -33,6 +35,8 @@ dependencies:
   google_sign_in: ^6.2.1
   firebase_core: ^2.31.0
   firebase_auth: ^4.19.5
+
+  location: ^6.0.2
 
 dev_dependencies:
   flutter_test:

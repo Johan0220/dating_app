@@ -1,9 +1,11 @@
 import 'package:dating_app/screens/chatbox/chatbox_screen.dart';
+import 'package:dating_app/finding_screen.dart';
 import 'package:dating_app/screens/home/home_screen.dart';
 import 'package:dating_app/screens/match/match_screen.dart';
 import 'package:dating_app/screens/profile/profile_screen.dart';
 import 'package:dating_app/screens/setting/setting_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class MyScreen extends StatefulWidget{
@@ -18,7 +20,9 @@ class _MyScreenState extends State<MyScreen>{
     const MatchScreen(),
     const ChatBoxScreen(),
     const ProfileScreen(),
+
   ];
+
 
   int _selectIndex = 0;
 

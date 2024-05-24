@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:location_platform_interface/location_platform_interface.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:swipe_cards/draggable_card.dart';
@@ -89,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
           log("Region $region");
         }
     ),
+
   ];
   @override
   void initState() {
@@ -434,6 +436,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onStackFinished: () {
 
                 },
+
               ),
             ),
         ],

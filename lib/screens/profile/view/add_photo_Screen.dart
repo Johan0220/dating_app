@@ -17,9 +17,14 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
   List<String> images = [];
   void pickImages(bool pickGalleryImages) async {
     final picker = ImagePicker();
-    final List<XFile>? pickedImages = pickGalleryImages
-        ? await picker.pickMultiImage(imageQuality: 6)
-        : await picker.pickMultiImage(imageQuality: 6);
+    late XFile? pickedImage;
+    late List<XFile>? pickedImages = [];
+
+    if (pickGalleryImages) {
+      pickedImages = await picker.pickMultiImage(imageQuality: 6);
+    } else {
+      pickedImage = await picker.pickImage(source: ImageSource.camera);
+    }
 
     if (pickedImages != null && mounted) {
       for (var image in pickedImages) {
@@ -30,8 +35,16 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
           });
         }
       }
-      Navigator.pop(context, images);
     }
+    if (pickedImage != null && mounted) {
+        final croppedImage = await cropImages(pickedImage);
+        if (croppedImage != null) {
+          setState(() {
+            images.add(croppedImage.path);
+          });
+      }
+    }
+    Navigator.pop(context, images);
   }
 
   Future<CroppedFile> cropImages(XFile image) async {
